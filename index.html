@@ -10,15 +10,62 @@
 <div class="verticalhorizontal">
     <p id="demo" style="font-size:200%;"></p>
     <button onclick="myFunction()">Thayer Shuffle</button>
+    <br>
+    <br>
+    <br>
+    East Side Pockets: <input type="checkbox" id="East Side Pockets" checked="true">
+    Antonio's Pizza: <input type="checkbox" id="Antonio's Pizza" checked="true">
+    Bajas Tex Mex Grill: <input type="checkbox" id="Baja's Tex Mex Grill" checked="true">
+    Soban Korean Eatery: <input type="checkbox" id="Soban Korean Eatery" checked="true">
+    <br>
+    Durk BarBQ: <input type="checkbox" id="Durk BarBQ" checked="true">
+    by CHLOE: <input type="checkbox" id="by CHLOE" checked="true">
+    Kabob and Curry: <input type="checkbox" id="Kabob and Curry" checked="true">
+    Chinatown: <input type="checkbox" id="Chinatown" checked="true">
+    Pokeworks: <input type="checkbox" id="Pokeworks" checked="true">
+    <br>
+    Baja's Taqueria: <input type="checkbox" id="Baja's Taqueria" checked="true">
+    Den Den Korean Fried Chicken: <input type="checkbox" id="Den Den Korean Fried Chicken" checked="true">
+    B.GOOD: <input type="checkbox" id="B.GOOD" checked="true">
+    Ganko Ittetsu Ramen: <input type="checkbox" id="Ganko Ittetsu Ramen" checked="true">
+    <br>
+    Shaking Crab: <input type="checkbox" id="Shaking Crab" checked="true">
+    Flatbread Company: <input type="checkbox" id="Flatbread Company" checked="true">
+    Wow Barbecue: <input type="checkbox" id="Wow Barbecue" checked="true">
+    SUSHI X-PRESS: <input type="checkbox" id="SUSHI X-PRESS" checked="true">
+    <br>
+    Chipotle Mexican Grill: <input type="checkbox" id="Chipotle Mexican Grill" checked="true">
+    Wongs Kitchen: <input type="checkbox" id="Wongs Kitchen" checked="true">
+    Caliente Mexican Grill: <input type="checkbox" id="Caliente Mexican Grill" checked="true">
+    Heng Thai & Rotisserie: <input type="checkbox" id="Heng Thai & Rotisserie" checked="true">
+    <br>
+    Shake Shack: <input type="checkbox" id="Shake Shack" checked="true">
+    Meeting Street Cafe: <input type="checkbox" id="Meeting Street Cafe" checked="true">
+    
+    
 </div>
 <a class="github-button" href="https://github.com/thayershuffle/thayershuffle.github.io" data-icon="octicon-star" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
 <script>
 
 function myFunction() {
   
-  var myArray = ['East Side Pockets', 'Antonio\'s Pizza', 'Baja\'s Tex Mex Grill', 'Soban Korean Eatery', 'Durk BarBQ','by CHLOE','Kabob and Curry','Chinatown','Pokeworks','Baja\'s Taqueria','Den Den Korean Fried Chicken','B.GOOD','Ganko Ittetsu Ramen','Shaking Crab','Flatbread Company','Wow Barbecue', 'SUSHI X-PRESS', 'Chipotle Mexican Grill', 'Wongs Kitchen', 'Caliente Mexican Grill', 'Heng Thai & Rotisserie', 'Shake Shack', 'Meeting Street Cafe' ]
+  var myArray = ["East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe"]
   var rand = myArray[Math.floor(Math.random() * myArray.length)];
-  document.getElementById("demo").innerHTML = rand;
+
+  var newArray = [];
+  var i;
+  for (i = 0; i < myArray.length; i++)
+  {
+      if (document.getElementById(myArray[i]).checked)
+      {
+          console.log("hey")
+          newArray.push(myArray[i]);
+      }
+  }
+  var rand2 = newArray[Math.floor(Math.random() * newArray.length)];
+  
+
+  document.getElementById("demo").innerHTML = rand2;
 }
 </script>
 
