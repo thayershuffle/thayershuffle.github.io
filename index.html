@@ -15,53 +15,77 @@
 #second {
     width: 5%;
     float: left;
-    height: 300px;
-}
+    height: 300px;}
 #third {
     width: 45%;
     float: right;
-    height: 300px;
-}
+    height: 300px;}
 #clear {
-    clear: both;
-}
+    clear: both;}
 #vh {
     display: table-cell;
     height: 100vh;
     text-align: center;
     width: 100vh;
-    vertical-align: top;
-}
-
+    vertical-align: top;}
 #column {
   display: table-cell;
   height: 100vh;
   text-align: right;
   width: 100vh;
-  vertical-align: top;
-}
-
+  vertical-align: top;}
 #left {
-    width: 44%;
+    width: 45%;
     float: left;
-    height: 300px;
-}
-
+    height: 300px;}
 #middle {
-    width: 2%;
+    width: 10%;
     float: left;
-    height: 300px;
-}
-
+    height: 300px;}
 #right {
-    width: 54%;
+    width: 45%;
     float: right;
-    height: 300px;
-}
+    height: 300px;}
 
+/* DROPDOWN BUTTON */
+.dropbtn {
+  background-color: #BFECEC;
+  padding: 7px;
+  border: none;}
 
+/* Position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #DFFAFA;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  text-align: left;
+  color: black;
+  padding: 3px 8px;
+  text-decoration: none;
+  display: block;}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #CBF6F6;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #8DE4E4;}
 </style>
 </head>
+
 <body>
 <body bgcolor="#FACCA3">
 <div id="container">
@@ -70,15 +94,21 @@
     <br>
     <br>
     <b><p id="demo" style="font-size:280%"></p></b>
-    <button style="color:white;font-size:20px;font-weight:normal;background-color:#800000;padding: 12px 20px;border: 1px solid #800000" onclick="myFunction()">Thayer Shuffle</button>
+    <button style="color:white;font-size:20px;font-weight:normal;background-color:#800000;padding: 12px 20px;border: 1px solid #800000" onclick="thayerShuffle()">Thayer Shuffle</button>
     <br>
     <br>
     <a class="github-button" href="https://github.com/thayershuffle/thayershuffle.github.io" data-icon="octicon-star" aria-label="Star ntkme/github-buttons on GitHub">About</a>
+    <div class="dropdown">
+      <button class="dropbtn">Options</button>
+      <div id="myDropdown" class="dropdown-content">
+        <a onclick="setSelect(false)">Deselect All</a>
+        <a onclick="setSelect(true)">Select All</a>
+      </div>
+    </div>
     <br>
     <br>
     <br>
     <div id = "left">
-    <button onclick="setSelect(false)">Deselect All</button>
     <div id="column">
     <br>
     Mike's Calzones & Deli: <input type="checkbox" id="Mike's Calzones & Deli" checked="true">
@@ -112,7 +142,6 @@
   </div></div>
     <div id="middle"></div>
     <div id="right">
-    <button onclick="setSelect(true)">Select All</button>
     <div id="column">
     <br>
     Flatbread Company: <input type="checkbox" id="Flatbread Company" checked="true">
@@ -166,6 +195,7 @@
 
 <script>
 
+// Set check box value for all items
 function setSelect(val) {
   var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"]
 
@@ -175,8 +205,8 @@ function setSelect(val) {
   }
 }
 
-function myFunction() {
-
+// Main function that randomly picks an item from the list of restaurants
+function thayerShuffle() {
   var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"]
   var rand = myArray[Math.floor(Math.random() * myArray.length)];
 
@@ -194,7 +224,7 @@ function myFunction() {
 
   document.getElementById("demo").innerHTML = rand2;
   document.getElementById("demo").style.color ="black";
-  if (rand2 == undefined)
+  if (rand2 == undefined) //show reminder message if no item is selected for the shuffle
   {
   document.getElementById("demo").innerHTML = "Pick a restaurant ;)";
   document.getElementById("demo").style.color ="red";
