@@ -156,6 +156,14 @@ input:checked + .slider:before {
             <span class="slider"></span>
           </label>
         </a>
+        <!-- Food options -->
+        <!-- TODO: uncomment when foodOption() is ready
+        <a onClick="foodOption('vegetarian')">Vegetarian</a>
+        <a onClick="foodOption('vegan')">Vegan</a>
+        <a onClick="foodOption('gluten_free')">Gluten-free</a>
+        <a onClick="foodOption('halal')">Halal</a> -->
+        <!-- TODO: Range slider for price ranges -->
+        <!-- <a>Price range</a> -->
       </div>
     </div>
     <br>
@@ -270,6 +278,27 @@ function thayerShuffle() {
   if (rand2 == undefined){//show reminder message if no item is selected for the shuffle
   document.getElementById("demo").innerHTML = "Pick a restaurant ;)";
   document.getElementById("demo").style.color ="red";
+  }
+}
+
+// Display (set as checked) restaurants that satisfy the stated food restriction
+function foodOption(restriction) {
+  //list of all restaurants
+  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
+  //lists of restaurants for each food restriction TODO: add restaurants to lists
+  var dict = {
+    'vegetarian': [],
+    'vegan': ["by CHLOE"],
+    'gluten_free': [],
+    'halal': ["Kabob and Curry"]
+  };
+  var l = dict[restriction];
+  for (i = 0; i < myArray.length; i++){
+    if (l.indexOf(myArray[i]) >= 0){
+      document.getElementById(myArray[i]).checked = true;
+    } else{
+      document.getElementById(myArray[i]).checked = false;
+    }
   }
 }
 
