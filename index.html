@@ -46,7 +46,7 @@
 <div id="container">
 <div id="first">
     <div id="vh">
-    <p id="demo" style="font-size:200%;"></p>
+    <b><p id="demo" style="font-size:200%;"></p></b>
     <button onclick="myFunction()">Thayer Shuffle</button>
     <br>
     <br>
@@ -127,9 +127,11 @@ function myFunction() {
   var rand2 = newArray[Math.floor(Math.random() * newArray.length)];
   
   document.getElementById("demo").innerHTML = rand2;
+  document.getElementById("demo").style.color ="black";
   if (rand2 == undefined)
   {
   document.getElementById("demo").innerHTML = "Pick a restaurant ;)";
+  document.getElementById("demo").style.color ="red";
   }
 }
 </script>
