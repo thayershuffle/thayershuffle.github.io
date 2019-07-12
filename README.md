@@ -6,6 +6,6 @@ If you like the website and want to make suggestions for improvements, feel free
 Features of Thayer Shuffle:
 + A map of Thayer Street with restaurant locations
 + Select/Deselect what restaurants you want the shuffle to include
-+ Select/Deselect all restaurants for quicker preference selection
-+ Restaurants are in two columns and grouped together based on which side of Thayer Street they are one
++ Buttons to select/deselect all restaurants for quicker preference selection
++ Restaurants are divided into two columns based on which side of Thayer Street they are on
 + Restaurants are ordered from North to South
