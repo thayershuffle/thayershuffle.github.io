@@ -61,7 +61,7 @@
   display: none;
   position: absolute;
   background-color: #DFFAFA;
-  min-width: 100px;
+  min-width: 110px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;}
 
@@ -69,7 +69,7 @@
 .dropdown-content a {
   text-align: left;
   color: black;
-  padding: 3px 8px;
+  padding: 10px 4px;
   text-decoration: none;
   display: block;}
 
@@ -81,6 +81,54 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #8DE4E4;}
+
+
+/* Toggle switch for setting check box values for all restaurants */
+.switch { /* The switch - the box around the slider */
+  float: right;
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 12px;}
+
+.switch input { /* Hide default HTML checkbox */
+  opacity: 0;
+  width: 0;
+  height: 0;}
+
+.slider { /* The slider */
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;}
+
+/* Slider appearance when toggled */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 9px;
+  width: 9px;
+  left: 2px;
+  bottom: 1.5px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;}
+
+input:checked + .slider {
+  background-color: #2196F3;}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(12px);
+  -ms-transform: translateX(12px);
+  transform: translateX(12px);}
 </style>
 </head>
 
@@ -91,16 +139,23 @@
     <div id="vh">
     <br>
     <br>
-    <b><p id="demo" style="font-size:280%"></p></b>
+    <b><p id="demo" style="font-size:280%"></p></b> <!-- Result display -->
+    <!-- Thayer Shuffle button -->
     <button style="color:white;font-size:20px;font-weight:normal;background-color:#800000;padding: 12px 20px;border: 1px solid #800000" onclick="thayerShuffle()">Thayer Shuffle</button>
     <br>
     <br>
+    <!-- Github star button -->
     <a class="github-button" href="https://github.com/thayershuffle/thayershuffle.github.io" data-icon="octicon-star" aria-label="Star ntkme/github-buttons on GitHub">About</a>
+    <!-- Dropdown menu button -->
     <div class="dropdown">
       <button class="dropbtn">Options</button>
       <div id="myDropdown" class="dropdown-content">
-        <a onclick="setSelect(false)">Deselect All</a>
-        <a onclick="setSelect(true)">Select All</a>
+        <a onclick="slide()">(De)select all
+          <label class="switch"> <!-- toggle switch -->
+            <input type="checkbox" id="toggle switch" onchange="setSelect(this.checked)">
+            <span class="slider"></span>
+          </label>
+        </a>
       </div>
     </div>
     <br>
@@ -195,28 +250,16 @@
 
 <script>
 
-// Set check box value for all items
-function setSelect(val) {
-  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"]
-
-  for (i = 0; i < myArray.length; i++)
-  {
-      document.getElementById(myArray[i]).checked = val;
-  }
-}
-
-// Main function that randomly picks an item from the list of restaurants
+// Randomly pick an item from the list of restaurants
 function thayerShuffle() {
-  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"]
+  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
   var rand = myArray[Math.floor(Math.random() * myArray.length)];
 
   var newArray = [];
   var i;
-  for (i = 0; i < myArray.length; i++)
-  {
-      if (document.getElementById(myArray[i]).checked)
-      {
-          console.log("hey")
+  for (i = 0; i < myArray.length; i++){
+      if (document.getElementById(myArray[i]).checked){
+          console.log("hey");
           newArray.push(myArray[i]);
       }
   }
@@ -224,10 +267,23 @@ function thayerShuffle() {
 
   document.getElementById("demo").innerHTML = rand2;
   document.getElementById("demo").style.color ="black";
-  if (rand2 == undefined) //show reminder message if no item is selected for the shuffle
-  {
+  if (rand2 == undefined){//show reminder message if no item is selected for the shuffle
   document.getElementById("demo").innerHTML = "Pick a restaurant ;)";
   document.getElementById("demo").style.color ="red";
+  }
+}
+
+// Toggle the slider on the switch
+function slide() {
+  document.getElementById("toggle switch").checked = !(document.getElementById("toggle switch").checked);
+  setSelect(document.getElementById("toggle switch").checked);
+}
+
+// Set checkbox value for all restaurants
+function setSelect(val) {
+  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
+  for (i = 0; i < myArray.length; i++){
+      document.getElementById(myArray[i]).checked = !(val);
   }
 }
 </script>
