@@ -84,6 +84,9 @@
     La Creperie: <input type="checkbox" id="La Creperie" checked="true">
     Andreas: <input type="checkbox" id="Andreas" checked="true">
     Subway: <input type="checkbox" id="Subway" checked="true">
+    <br>
+    <button onclick="setSelect(false)">Deselect All</button>
+    <button onclick="setSelect(true)">Select All</button>
     </div>
 
 
@@ -96,6 +99,15 @@
 </div>
 
 <script>
+
+function setSelect(val) {
+  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway"]
+
+  for (i = 0; i < myArray.length; i++)
+  {
+      document.getElementById(myArray[i]).checked = val;
+  }
+}
 
 function myFunction() {
   
@@ -114,8 +126,11 @@ function myFunction() {
   }
   var rand2 = newArray[Math.floor(Math.random() * newArray.length)];
   
-
   document.getElementById("demo").innerHTML = rand2;
+  if (rand2 == undefined)
+  {
+  document.getElementById("demo").innerHTML = "Pick a restaurant ;)";
+  }
 }
 </script>
 
