@@ -50,72 +50,90 @@
     <button onclick="myFunction()">Thayer Shuffle</button>
     <br>
     <br>
+    <a class="github-button" href="https://github.com/thayershuffle/thayershuffle.github.io" data-icon="octicon-star" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
+    <br>
+    <br>
     <br>
     <div id = "first">
-    East Side Pockets: <input type="checkbox" id="East Side Pockets" checked="true">
+    <button onclick="setSelect(false)">Deselect All</button>
     <br>
-    Antonio's Pizza: <input type="checkbox" id="Antonio's Pizza" checked="true">
     <br>
-    Bajas Tex Mex Grill: <input type="checkbox" id="Baja's Tex Mex Grill" checked="true">
+    Mike's Calzones & Deli: <input type="checkbox" id="Mike's Calzones & Deli" checked="true">
     <br>
-    Soban Korean Eatery: <input type="checkbox" id="Soban Korean Eatery" checked="true">
-    <br>
-    Durk BarBQ: <input type="checkbox" id="Durk BarBQ" checked="true">
-    <br>
-    by CHLOE: <input type="checkbox" id="by CHLOE" checked="true">
-    <br>
-    Kabob and Curry: <input type="checkbox" id="Kabob and Curry" checked="true">
-    <br>
-    Chinatown: <input type="checkbox" id="Chinatown" checked="true">
-    <br>
-    Pokeworks: <input type="checkbox" id="Pokeworks" checked="true">
-    <br>
-    Baja's Taqueria: <input type="checkbox" id="Baja's Taqueria" checked="true">
-    <br>
-    Den Den Korean Fried Chicken: <input type="checkbox" id="Den Den Korean Fried Chicken" checked="true">
-    B.GOOD: <input type="checkbox" id="B.GOOD" checked="true">
-    <br>
-    Ganko Ittetsu Ramen: <input type="checkbox" id="Ganko Ittetsu Ramen" checked="true">
-    <br>
-    Shaking Crab: <input type="checkbox" id="Shaking Crab" checked="true">
-    </div>
-    <div id="second"></div>
-    <div id="third">
-    Flatbread Company: <input type="checkbox" id="Flatbread Company" checked="true">
-    <br>
-    Wow Barbecue: <input type="checkbox" id="Wow Barbecue" checked="true">
-    <br>
-    SUSHI X-PRESS: <input type="checkbox" id="SUSHI X-PRESS" checked="true">
-    <br>
-    Chipotle Mexican Grill: <input type="checkbox" id="Chipotle Mexican Grill" checked="true">
-    <br>
-    Wongs Kitchen: <input type="checkbox" id="Wongs Kitchen" checked="true">
-    <br>
-    Caliente Mexican Grill: <input type="checkbox" id="Caliente Mexican Grill" checked="true">
-    <br>
-    Heng Thai & Rotisserie: <input type="checkbox" id="Heng Thai & Rotisserie" checked="true">
-    <br>
-    Shake Shack: <input type="checkbox" id="Shake Shack" checked="true">
-    <br>
-    Meeting Street Cafe: <input type="checkbox" id="Meeting Street Cafe" checked="true">
     <br>
     Bagel Gourmet Ole: <input type="checkbox" id="Bagel Gourmet Ole" checked="true">
     <br>
+    <br>
+    Shaking Crab: <input type="checkbox" id="Shaking Crab" checked="true">
+    <br>
+    <br>
+    East Side Pockets: <input type="checkbox" id="East Side Pockets" checked="true">
+    <br>
+    <br>
     Tropical Smoothie Cafe: <input type="checkbox" id="Tropical Smoothie Cafe" checked="true">
+    <br>
+    <br>
+    Soban Korean Eatery: <input type="checkbox" id="Soban Korean Eatery" checked="true">
+    <br>
+    <br>
+    Meeting Street Cafe: <input type="checkbox" id="Meeting Street Cafe" checked="true">
+    <br>
+    <br>
+    Andreas: <input type="checkbox" id="Andreas" checked="true">
+    <br>
+    <br>
+    Antonio's Pizza: <input type="checkbox" id="Antonio's Pizza" checked="true">
+    <br>
+    <br>
+    Heng Thai & Rotisserie: <input type="checkbox" id="Heng Thai & Rotisserie" checked="true">
+    </div>
+    <div id="second"></div>
+    <div id="third">
+    <button onclick="setSelect(true)">Select All</button>
+    <br>
+    <br>
+    Flatbread Company: <input type="checkbox" id="Flatbread Company" checked="true">
+    <br>
+    SUSHI X-PRESS: <input type="checkbox" id="SUSHI X-PRESS" checked="true">
+    <br>
+    Chinatown: <input type="checkbox" id="Chinatown" checked="true">
+    <br>
+    Durk BarBQ: <input type="checkbox" id="Durk BarBQ" checked="true">
+    <br>
+    Bajas Tex Mex Grill: <input type="checkbox" id="Baja's Tex Mex Grill" checked="true">
+    <br>
+    B.GOOD: <input type="checkbox" id="B.GOOD" checked="true">
+    <br>
+    Caliente Mexican Grill: <input type="checkbox" id="Caliente Mexican Grill" checked="true">
+    <br>
+    Kabob and Curry: <input type="checkbox" id="Kabob and Curry" checked="true">
+    <br>
+    Shake Shack: <input type="checkbox" id="Shake Shack" checked="true">
+    <br>
+    Chipotle Mexican Grill: <input type="checkbox" id="Chipotle Mexican Grill" checked="true">
+    <br>
+    Den Den Korean Fried Chicken: <input type="checkbox" id="Den Den Korean Fried Chicken" checked="true">
+    <br>
+    Wow Barbecue: <input type="checkbox" id="Wow Barbecue" checked="true">
+    <br>
+    Baja's Taqueria: <input type="checkbox" id="Baja's Taqueria" checked="true">
+    <br>
+    by CHLOE: <input type="checkbox" id="by CHLOE" checked="true">
     <br>
     La Creperie: <input type="checkbox" id="La Creperie" checked="true">
     <br>
-    Andreas: <input type="checkbox" id="Andreas" checked="true">
+    Ganko Ittetsu Ramen: <input type="checkbox" id="Ganko Ittetsu Ramen" checked="true">
+    <br>
+    Pokeworks: <input type="checkbox" id="Pokeworks" checked="true">
+    <br>
+    Wongs Kitchen: <input type="checkbox" id="Wongs Kitchen" checked="true">
     <br>
     Subway: <input type="checkbox" id="Subway" checked="true">
     <br>
     </div>
     <br>
-    <button onclick="setSelect(false)">Deselect All</button>
-    <button onclick="setSelect(true)">Select All</button>
 <br>
 <br>
-<a class="github-button" href="https://github.com/thayershuffle/thayershuffle.github.io" data-icon="octicon-star" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
     </div>
 
 
@@ -130,7 +148,7 @@
 <script>
 
 function setSelect(val) {
-  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway"]
+  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"]
 
   for (i = 0; i < myArray.length; i++)
   {
@@ -139,8 +157,8 @@ function setSelect(val) {
 }
 
 function myFunction() {
-  
-  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway"]
+
+  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"]
   var rand = myArray[Math.floor(Math.random() * myArray.length)];
 
   var newArray = [];
@@ -154,7 +172,7 @@ function myFunction() {
       }
   }
   var rand2 = newArray[Math.floor(Math.random() * newArray.length)];
-  
+
   document.getElementById("demo").innerHTML = rand2;
   document.getElementById("demo").style.color ="black";
   if (rand2 == undefined)
