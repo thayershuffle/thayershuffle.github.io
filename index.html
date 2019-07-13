@@ -258,7 +258,8 @@ input:checked + .slider:before {
 </div>
     <div id="second"></div>
     <div id="third">
-     <img src="thayer.png">
+     <!-- <img src="thayer.png"> -->
+     <div id="map"></div>
     </div>
     <div id="clear"></div>
 </div>
@@ -342,6 +343,26 @@ function setSelect(val) {
   }
 }
 </script>
+<script>
+// Initialize and add the map
+function initMap() {
+  // The location of thayerstreet
+  var thayerstreet = {lat: 41.828633, lng: -71.400694};
+  // The map, centered at thayerstreet
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 17, center: thayerstreet});
+  // The marker, positioned at thayerstreet
+  var marker = new google.maps.Marker({position: thayerstreet, map: map});
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdB7tMRVNIpoVq_7Idgve47S0du8Bt8ZU&callback=initMap">
+    </script>
 
 
 </body>
