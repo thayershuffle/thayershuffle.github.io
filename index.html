@@ -148,7 +148,7 @@ input:checked + .slider:before {
     <a class="github-button" href="https://github.com/thayershuffle/thayershuffle.github.io" data-icon="octicon-star" aria-label="Star ntkme/github-buttons on GitHub">About</a>
     <!-- Dropdown menu button -->
     <div class="dropdown">
-      <button class="dropbtn">Options</button>
+      <button onclick="drop()" class="dropbtn">Options</button>
       <div id="myDropdown" class="dropdown-content">
         <a onclick="slide()">(De)select all
           <label class="switch"> <!-- toggle switch -->
@@ -298,6 +298,25 @@ function foodOption(restriction) {
       document.getElementById(myArray[i]).checked = true;
     } else{
       document.getElementById(myArray[i]).checked = false;
+    }
+  }
+}
+
+// When the user clicks on the button, toggle between hiding and showing the dropdown content
+function drop() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
     }
   }
 }
