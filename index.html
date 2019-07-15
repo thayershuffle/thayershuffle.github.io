@@ -164,11 +164,10 @@ input:checked + .slider:before {
           </label>
         </a>
         <!-- Food options -->
-        <!-- TODO: uncomment when foodOption() is ready
         <a onClick="foodOption('vegetarian')">Vegetarian</a>
         <a onClick="foodOption('vegan')">Vegan</a>
-        <a onClick="foodOption('gluten_free')">Gluten-free</a>
-        <a onClick="foodOption('halal')">Halal</a> -->
+        <a onClick="foodOption('gluten_free')">Gluten free</a>
+        <a onClick="foodOption('halal')">Halal</a>
         <!-- TODO: Range slider for price ranges -->
         <!-- <a>Price range</a> -->
       </div>
@@ -295,9 +294,9 @@ function foodOption(restriction) {
   var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
   //lists of restaurants for each food restriction TODO: add restaurants to lists
   var dict = {
-    'vegetarian': [],
-    'vegan': ["by CHLOE"],
-    'gluten_free': [],
+    'vegetarian': ["Shake Shack","Caliente Mexican Grill","Subway","by CHLOE","Pokeworks","Andreas","Heng Thai & Rotisserie","Wow Barbecue","Ganko Ittetsu Ramen","Kabob and Curry","Den Den Korean Fried Chicken","Flatbread Company","Meeting Street Cafe","Soban Korean Eatery","B.GOOD","Mike\'s Calzones & Deli","Chipotle Mexican Grill","East Side Pockets","Chinatown","Baja\'s Tex Mex Grill","Bagel Gourmet Ole","Wongs Kitchen","Baja\'s Taqueria","Antonio\'s Pizza","SUSHI X-PRESS","La Creperie","Tropical Smoothie Cafe","Durk BarBQ"],
+    'vegan': ["Pokeworks","Heng Thai & Rotisserie","Wow Barbecue","Kabob and Curry","Den Den Korean Fried Chicken","Flatbread Company","Soban Korean Eatery","by CHLOE","B.GOOD","Chipotle Mexican Grill","East Side Pockets","Chinatown","Baja\'s Tex Mex Grill","Wongs Kitchen","SUSHI X-PRESS","Tropical Smoothie Cafe"],
+    'gluten_free': ["Shake Shack","by CHLOE","Pokeworks","Andreas","Heng Thai & Rotisserie","Wow Barbecue","Kabob and Curry","Den Den Korean Fried Chicken","Shaking Crab","Meeting Street Cafe","Soban Korean Eatery","Chinatown","B.GOOD","Chipotle Mexican Grill","Baja\'s Tex Mex Grill","Bagel Gourmet Ole","Wongs Kitchen","SUSHI X-PRESS","Tropical Smoothie Cafe","Durk BarBQ"],
     'halal': ["Kabob and Curry"]
   };
   var l = dict[restriction];
