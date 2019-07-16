@@ -384,8 +384,30 @@ function initMap() {
   // The map, centered at thayerstreet
   var map = new google.maps.Map(
       document.getElementById('map'), {zoom: 17, center: thayerstreet});
-  // The marker, positioned at thayerstreet
-  var marker = new google.maps.Marker({position: thayerstreet, map: map});
+  // List of restaurants on Thayer Street and their locations
+  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
+  var locations = [ //TODO: add actual latitude and longtitude for places
+    ['Bagel Gourmet Ole', 41.830060, -71.401009],
+    ['Tropical Smoothie Cafe', 41.830123, -71.401138],
+    ['La Creperie', 41.827955, -71.400248],
+    ['East Side Pockets', 41.829706, -71.401043],
+    ['Antonio\'s Pizza', 41.830661, -71.401112]
+  ];
+  var marker, i;
+  var marked = false;
+  // Show markers for selected restaurants
+  for (i = 0; i < locations.length; i++) {
+    if (document.getElementById(locations[i][0]).checked) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+      marked = marked && true;
+    }
+  }
+  if (!marked) {
+    var marker = new google.maps.Marker({position: thayerstreet, map: map});
+  }
 }
     </script>
     <!--Load the API from the specified URL
