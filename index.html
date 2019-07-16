@@ -293,6 +293,35 @@ function thayerShuffle() {
   }
 }
 
+// Set checkbox value for all restaurants
+function setSelect(val) {
+  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
+  var i;
+  for (i = 0; i < myArray.length; i++){
+      document.getElementById(myArray[i]).checked = !(val);
+  }
+}
+
+// Display (set as checked) restaurants according to their price range
+function price(val) {
+  //list of all restaurants
+  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
+  //lists of restaurants based on their price range
+  var dict = {
+    false: ["Caliente Mexican Grill","Subway","B.GOOD","Mike\'s Calzones & Deli","Chipotle Mexican Grill","Chipotle Mexican Grill","East Side Pockets","Baja\'s Tex Mex Grill","Bagel Gourmet Ole","Wongs Kitchen","Baja\'s Taqueria","Antonio\'s Pizza","SUSHI X-PRESS","La Creperie","Tropical Smoothie Cafe"],
+    true: ["Shake Shack","by CHLOE","Pokeworks","Andreas","Heng Thai & Rotisserie","Wow Barbecue","Ganko Ittetsu Ramen","Kabob and Curry","Den Den Korean Fried Chicken","Flatbread Company","Meeting Street Cafe","Shaking Crab","Chinatown","Durk BarBQ","Soban Korean Eatery"],
+  };
+  var l = dict[val];
+  var i;
+  for (i = 0; i < myArray.length; i++){
+    if (l.indexOf(myArray[i]) >= 0){
+      document.getElementById(myArray[i]).checked = true;
+    } else{
+      document.getElementById(myArray[i]).checked = false;
+    }
+  }
+}
+
 // Return list of restaurants for the corresponding food restriction if selected,
 // otherwise return list of all restaurants
 function helper(id){
@@ -331,26 +360,6 @@ function foodOption() {
   }
 }
 
-// Display (set as checked) restaurants according to their price range
-function price(val) {
-  //list of all restaurants
-  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
-  //lists of restaurants based on their price range
-  var dict = {
-    false: ["Caliente Mexican Grill","Subway","B.GOOD","Mike\'s Calzones & Deli","Chipotle Mexican Grill","Chipotle Mexican Grill","East Side Pockets","Baja\'s Tex Mex Grill","Bagel Gourmet Ole","Wongs Kitchen","Baja\'s Taqueria","Antonio\'s Pizza","SUSHI X-PRESS","La Creperie","Tropical Smoothie Cafe"],
-    true: ["Shake Shack","by CHLOE","Pokeworks","Andreas","Heng Thai & Rotisserie","Wow Barbecue","Ganko Ittetsu Ramen","Kabob and Curry","Den Den Korean Fried Chicken","Flatbread Company","Meeting Street Cafe","Shaking Crab","Chinatown","Durk BarBQ","Soban Korean Eatery"],
-  };
-  var l = dict[val];
-  var i;
-  for (i = 0; i < myArray.length; i++){
-    if (l.indexOf(myArray[i]) >= 0){
-      document.getElementById(myArray[i]).checked = true;
-    } else{
-      document.getElementById(myArray[i]).checked = false;
-    }
-  }
-}
-
 // When the user clicks on the button, toggle between hiding and showing the dropdown content
 function drop() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -367,15 +376,6 @@ window.onclick = function(event) {
         openDropdown.classList.remove('show');
       }
     }
-  }
-}
-
-// Set checkbox value for all restaurants
-function setSelect(val) {
-  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
-  var i;
-  for (i = 0; i < myArray.length; i++){
-      document.getElementById(myArray[i]).checked = !(val);
   }
 }
 </script>
