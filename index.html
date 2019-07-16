@@ -397,16 +397,16 @@ function initMap() {
   var marked = false;
   // Show markers for selected restaurants
   for (i = 0; i < locations.length; i++) {
-    if document.getElementById(locations[i][0]).checked {
+    if (document.getElementById(locations[i][0]).checked) {
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
         map: map
       });
       marked = marked && true;
     }
-    if !marked {
-      var marker = new google.maps.Marker({position: thayerstreet, map: map});
-    }
+  }
+  if (!marked) {
+    var marker = new google.maps.Marker({position: thayerstreet, map: map});
   }
 }
     </script>
