@@ -157,24 +157,24 @@ input:checked + .slider:before {
     <div class="dropdown">
       <button onclick="drop()" class="dropbtn">Options</button>
       <div id="myDropdown" class="dropdown-content">
-        <a onclick="slide()">(De)select all
+        <a>(De)select all
           <label class="switch"> <!-- toggle switch -->
             <input type="checkbox" id="toggle switch" onchange="setSelect(this.checked)">
             <span class="slider"></span>
           </label>
         </a>
-        <!-- Food options -->
-        <a onClick="foodOption('vegetarian')">Vegetarian</a>
-        <a onClick="foodOption('vegan')">Vegan</a>
-        <a onClick="foodOption('gluten_free')">Gluten free</a>
-        <a onClick="foodOption('halal')">Halal</a>
         <!-- Toggle switch for price ranges -->
-        <a onclick="priceSlider()">Price range ($-$$)
+        <a>Price range ($-$$)
           <label class="switch"> <!-- toggle switch -->
             <input type="checkbox" id="price switch" onchange="price(this.checked)">
             <span class="slider"></span>
           </label>
         </a>
+        <!-- Food options -->
+        <a>Vegetarian <input type="checkbox" id="vegetarian" onchange="foodOption()"></a>
+        <a>Vegan <input type="checkbox" id="vegan" onchange="foodOption()"></a>
+        <a>Gluten free <input type="checkbox" id="gluten_free" onchange="foodOption()"></a>
+        <a>Halal <input type="checkbox" id="halal" onchange="foodOption()"></a>
       </div>
     </div>
     <br>
@@ -293,32 +293,42 @@ function thayerShuffle() {
   }
 }
 
-// Display (set as checked) restaurants that satisfy the stated food restriction
-function foodOption(restriction) {
+// Return list of restaurants for the corresponding food restriction if selected,
+// otherwise return list of all restaurants
+function helper(id){
   //list of all restaurants
   var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
   //lists of restaurants for each food restriction
   var dict = {
-    'vegetarian': ["Shake Shack","Caliente Mexican Grill","Subway","by CHLOE","Pokeworks","Andreas","Heng Thai & Rotisserie","Wow Barbecue","Ganko Ittetsu Ramen","Kabob and Curry","Den Den Korean Fried Chicken","Flatbread Company","Meeting Street Cafe","Soban Korean Eatery","B.GOOD","Mike\'s Calzones & Deli","Chipotle Mexican Grill","East Side Pockets","Chinatown","Baja\'s Tex Mex Grill","Bagel Gourmet Ole","Wongs Kitchen","Baja\'s Taqueria","Antonio\'s Pizza","SUSHI X-PRESS","La Creperie","Tropical Smoothie Cafe","Durk BarBQ"],
-    'vegan': ["Pokeworks","Heng Thai & Rotisserie","Wow Barbecue","Kabob and Curry","Den Den Korean Fried Chicken","Flatbread Company","Soban Korean Eatery","by CHLOE","B.GOOD","Chipotle Mexican Grill","East Side Pockets","Chinatown","Baja\'s Tex Mex Grill","Wongs Kitchen","SUSHI X-PRESS","Tropical Smoothie Cafe"],
-    'gluten_free': ["Shake Shack","by CHLOE","Pokeworks","Andreas","Heng Thai & Rotisserie","Wow Barbecue","Kabob and Curry","Den Den Korean Fried Chicken","Shaking Crab","Meeting Street Cafe","Soban Korean Eatery","Chinatown","B.GOOD","Chipotle Mexican Grill","Baja\'s Tex Mex Grill","Bagel Gourmet Ole","Wongs Kitchen","SUSHI X-PRESS","Tropical Smoothie Cafe","Durk BarBQ"],
-    'halal': ["Kabob and Curry"]
+    "vegetarian": ["Shake Shack","Caliente Mexican Grill","Subway","by CHLOE","Pokeworks","Andreas","Heng Thai & Rotisserie","Wow Barbecue","Ganko Ittetsu Ramen","Kabob and Curry","Den Den Korean Fried Chicken","Flatbread Company","Meeting Street Cafe","Soban Korean Eatery","B.GOOD","Mike\'s Calzones & Deli","Chipotle Mexican Grill","East Side Pockets","Chinatown","Baja\'s Tex Mex Grill","Bagel Gourmet Ole","Wongs Kitchen","Baja\'s Taqueria","Antonio\'s Pizza","SUSHI X-PRESS","La Creperie","Tropical Smoothie Cafe","Durk BarBQ"],
+    "vegan": ["Pokeworks","Heng Thai & Rotisserie","Wow Barbecue","Kabob and Curry","Den Den Korean Fried Chicken","Flatbread Company","Soban Korean Eatery","by CHLOE","B.GOOD","Chipotle Mexican Grill","East Side Pockets","Chinatown","Baja\'s Tex Mex Grill","Wongs Kitchen","SUSHI X-PRESS","Tropical Smoothie Cafe"],
+    "gluten_free": ["Shake Shack","by CHLOE","Pokeworks","Andreas","Heng Thai & Rotisserie","Wow Barbecue","Kabob and Curry","Den Den Korean Fried Chicken","Shaking Crab","Meeting Street Cafe","Soban Korean Eatery","Chinatown","B.GOOD","Chipotle Mexican Grill","Baja\'s Tex Mex Grill","Bagel Gourmet Ole","Wongs Kitchen","SUSHI X-PRESS","Tropical Smoothie Cafe","Durk BarBQ"],
+    "halal": ["Kabob and Curry"]
   };
-  var l = dict[restriction];
+  if (document.getElementById(id).checked) {
+    return dict[id];
+  } else {
+    return myArray;
+  }
+}
+
+// Display (set as checked) restaurant(s) that satisfy the selected food restriction(s)
+function foodOption() {
+  //list of all restaurants
+  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
+  // list of restaurant(s) corresponding to the selected food restriction(s)
+  var l1 = helper("vegetarian");
+  var l2 = helper("vegan");
+  var l3 = helper("gluten_free");
+  var l4 = helper("halal");
   var i;
   for (i = 0; i < myArray.length; i++){
-    if (l.indexOf(myArray[i]) >= 0){
+    if ((l1.indexOf(myArray[i]) >= 0) && (l2.indexOf(myArray[i]) >= 0) && (l3.indexOf(myArray[i]) >= 0) && (l4.indexOf(myArray[i]) >= 0)){
       document.getElementById(myArray[i]).checked = true;
     } else{
       document.getElementById(myArray[i]).checked = false;
     }
   }
-}
-
-// Toggle the price slider
-function priceSlider() {
-  document.getElementById("price switch").checked = !(document.getElementById("price switch").checked);
-  price(document.getElementById("price switch").checked);
 }
 
 // Display (set as checked) restaurants according to their price range
@@ -358,12 +368,6 @@ window.onclick = function(event) {
       }
     }
   }
-}
-
-// Toggle the slider on the switch
-function slide() {
-  document.getElementById("toggle switch").checked = !(document.getElementById("toggle switch").checked);
-  setSelect(document.getElementById("toggle switch").checked);
 }
 
 // Set checkbox value for all restaurants
