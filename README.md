@@ -6,8 +6,7 @@ If you like the website and want to make suggestions for improvements, feel free
 Features of Thayer Shuffle:
 + Dynamic map of Thayer Street with restaurant locations
 + Checkboxes to select/deselect what restaurants you want the shuffle to include
-+ Toggle switch to select/deselect all restaurants for quicker preference selection
-+ Toggle switch to display restaurants according to their price range
-+ Filter for restaurants that have vegetarian/vegan/gluten-free/halal options
++ Checkbox to select/deselect all restaurants for quicker preference selection
++ Filter for restaurants that have inexpensive/vegetarian/vegan/gluten-free/halal options
 + Restaurants are divided into two columns based on which side of Thayer Street they are on
 + Restaurants are ordered from North to South
