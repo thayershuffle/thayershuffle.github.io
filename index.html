@@ -232,8 +232,6 @@ input:checked + .slider:before {
     <br>
     Den Den Korean Fried Chicken: <input type="checkbox" id="Den Den Korean Fried Chicken" checked="true">
     <br>
-    Wow Barbecue: <input type="checkbox" id="Wow Barbecue" checked="true">
-    <br>
     Baja's Taqueria: <input type="checkbox" id="Baja's Taqueria" checked="true">
     <br>
     by CHLOE: <input type="checkbox" id="by CHLOE" checked="true">
@@ -265,7 +263,7 @@ input:checked + .slider:before {
 
 // Randomly pick an item from the list of restaurants
 function thayerShuffle() {
-  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
+  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
   var rand = myArray[Math.floor(Math.random() * myArray.length)];
 
   var newArray = [];
@@ -288,7 +286,7 @@ function thayerShuffle() {
 
 // Set checkbox value for all restaurants
 function setSelect(val) {
-  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
+  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
   var i;
   for (i = 0; i < myArray.length; i++){
       document.getElementById(myArray[i]).checked = val;
@@ -299,13 +297,13 @@ function setSelect(val) {
 // or the selected price range, otherwise return list of all restaurants
 function helper(id){
   //list of all restaurants
-  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
+  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
   //lists of restaurants for each food restriction and price range
   var dict = {
     "$": ["Caliente Mexican Grill","Subway","B.GOOD","Mike\'s Calzones & Deli","Chipotle Mexican Grill","Chipotle Mexican Grill","East Side Pockets","Baja\'s Tex Mex Grill","Bagel Gourmet Ole","Wongs Kitchen","Baja\'s Taqueria","Antonio\'s Pizza","SUSHI X-PRESS","La Creperie","Tropical Smoothie Cafe"],
-    "vegetarian": ["Shake Shack","Caliente Mexican Grill","Subway","by CHLOE","Pokeworks","Andreas","Heng Thai & Rotisserie","Wow Barbecue","Ganko Ittetsu Ramen","Kabob and Curry","Den Den Korean Fried Chicken","Flatbread Company","Meeting Street Cafe","Soban Korean Eatery","B.GOOD","Mike\'s Calzones & Deli","Chipotle Mexican Grill","East Side Pockets","Chinatown","Baja\'s Tex Mex Grill","Bagel Gourmet Ole","Wongs Kitchen","Baja\'s Taqueria","Antonio\'s Pizza","SUSHI X-PRESS","La Creperie","Tropical Smoothie Cafe","Durk BarBQ"],
-    "vegan": ["Pokeworks","Heng Thai & Rotisserie","Wow Barbecue","Kabob and Curry","Den Den Korean Fried Chicken","Flatbread Company","Soban Korean Eatery","by CHLOE","B.GOOD","Chipotle Mexican Grill","East Side Pockets","Chinatown","Baja\'s Tex Mex Grill","Wongs Kitchen","SUSHI X-PRESS","Tropical Smoothie Cafe"],
-    "gluten_free": ["Mike\'s Calzones & Deli","Shake Shack","by CHLOE","Pokeworks","Andreas","Heng Thai & Rotisserie","Wow Barbecue","Kabob and Curry","Den Den Korean Fried Chicken","Shaking Crab","Meeting Street Cafe","Soban Korean Eatery","Chinatown","B.GOOD","Chipotle Mexican Grill","Baja\'s Tex Mex Grill","Bagel Gourmet Ole","Wongs Kitchen","SUSHI X-PRESS","Tropical Smoothie Cafe","Durk BarBQ"],
+    "vegetarian": ["Shake Shack","Caliente Mexican Grill","Subway","by CHLOE","Pokeworks","Andreas","Heng Thai & Rotisserie","Ganko Ittetsu Ramen","Kabob and Curry","Den Den Korean Fried Chicken","Flatbread Company","Meeting Street Cafe","Soban Korean Eatery","B.GOOD","Mike\'s Calzones & Deli","Chipotle Mexican Grill","East Side Pockets","Chinatown","Baja\'s Tex Mex Grill","Bagel Gourmet Ole","Wongs Kitchen","Baja\'s Taqueria","Antonio\'s Pizza","SUSHI X-PRESS","La Creperie","Tropical Smoothie Cafe","Durk BarBQ"],
+    "vegan": ["Pokeworks","Heng Thai & Rotisserie","Kabob and Curry","Den Den Korean Fried Chicken","Flatbread Company","Soban Korean Eatery","by CHLOE","B.GOOD","Chipotle Mexican Grill","East Side Pockets","Chinatown","Baja\'s Tex Mex Grill","Wongs Kitchen","SUSHI X-PRESS","Tropical Smoothie Cafe"],
+    "gluten_free": ["Mike\'s Calzones & Deli","Shake Shack","by CHLOE","Pokeworks","Andreas","Heng Thai & Rotisserie","Kabob and Curry","Den Den Korean Fried Chicken","Shaking Crab","Meeting Street Cafe","Soban Korean Eatery","Chinatown","B.GOOD","Chipotle Mexican Grill","Baja\'s Tex Mex Grill","Bagel Gourmet Ole","Wongs Kitchen","SUSHI X-PRESS","Tropical Smoothie Cafe","Durk BarBQ"],
     "halal": ["Mike\'s Calzones & Deli","Kabob and Curry"]
   };
   if (document.getElementById(id).checked) {
@@ -318,7 +316,7 @@ function helper(id){
 // Display (set as checked) restaurant(s) that satisfy the selected food restriction(s) and price range
 function restaurantOption() {
   //list of all restaurants
-  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","Wow Barbecue","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
+  var myArray = ["Bagel Gourmet Ole", "Tropical Smoothie Cafe", "La Creperie", "East Side Pockets", "Antonio\'s Pizza", "Baja\'s Tex Mex Grill", "Soban Korean Eatery", "Durk BarBQ","by CHLOE","Kabob and Curry","Chinatown","Pokeworks","Baja\'s Taqueria","Den Den Korean Fried Chicken","B.GOOD","Ganko Ittetsu Ramen","Shaking Crab","Flatbread Company","SUSHI X-PRESS","Chipotle Mexican Grill", "Wongs Kitchen","Caliente Mexican Grill","Heng Thai & Rotisserie","Shake Shack","Meeting Street Cafe","Andreas","Subway","Mike\'s Calzones & Deli"];
   // list of restaurant(s) corresponding to the selected food restriction(s) and price range
   var l1 = helper("vegetarian");
   var l2 = helper("vegan");
